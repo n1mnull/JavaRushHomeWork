@@ -1,0 +1,26 @@
+Познаём Java. Третья чашка: примитивные типы, и объекты. Базовые конструкции
+http://habrahabr.ru/post/49582/ 
+
+Философия Java 4-е издание Wiki-версия   - много букав
+http://wikijava.it-cache.net/
+
+
+Более компактная запись первой части:
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+String name = reader.readLine();
+String sAge = reader.readLine();
+int nAge = Integer.parseInt(sAge); 
+
+Еще более компактная 
+Scanner scanner = new Scanner(System.in);
+String name = scanner.nextLine();
+int age = scanner.nextInt(); 
+
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String name = reader.readLine();
+        String sSalary = reader.readLine();
+        int nSalary = Integer.parseInt(sSalary);
+        String sYear = reader.readLine();
+        int nYear = Integer.parseInt(sYear);
+        System.out.println(name + " получает "+sSalary+" через "+sYear+" лет.");
