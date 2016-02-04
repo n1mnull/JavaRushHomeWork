@@ -24,8 +24,22 @@ public class Solution {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
 
-
         System.out.println(dateFormat.format(new Date(inputString)).toString().toUpperCase());
+
+
+//        for (int i = 0; i < 30; i++)
+//        {
+//            String str ="15/"+i+"/1990";
+//            Date testDate = new Date(str);
+//            System.out.print(testDate+" : ");
+//            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH);
+//            System.out.println(dateFormat.format(testDate));
+//
+//        }
+
+
+
+
 
     }
 }
