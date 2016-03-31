@@ -1,25 +1,23 @@
-package com.javarush.test.level19.lesson10.home01;
+package com.javarush.test.level19.lesson10.home02;
 
-/* Считаем зарплаты
+/* Самый богатый
 В метод main первым параметром приходит имя файла.
 В этом файле каждая строка имеет следующий вид:
 имя значение
 где [имя] - String, [значение] - double. [имя] и [значение] разделены пробелом
 
 Для каждого имени посчитать сумму всех его значений
-Все данные вывести в консоль, предварительно отсортировав в возрастающем порядке по имени
+Вывести в консоль имена, у которых максимальная сумма
+Имена разделять пробелом либо выводить с новой строки
 Закрыть потоки. Не использовать try-with-resources
 
 Пример входного файла:
-Петров 2
-Сидоров 6
+Петров 0.501
 Иванов 1.35
-Петров 3.1
+Петров 0.85
 
 Пример вывода:
-Иванов 1.35
-Петров 5.1
-Сидоров 6.0
+Петров
 */
 
 import java.io.BufferedReader;
@@ -32,7 +30,6 @@ import java.util.Map;
 public class Solution {
     public static void main(String[] args) throws IOException
     {
-
         String fileName = args[0];
         ArrayList<String> fileList = new ArrayList<String>();
         String input;
@@ -66,8 +63,19 @@ public class Solution {
             }
         }
 
+        double max = map.get(names.get(0));
         for (Map.Entry<String, Double> entry : map.entrySet()){
-            System.out.println(entry.getKey()+" "+entry.getValue());
+            if(entry.getValue() > max)
+                max = entry.getValue();
         }
+
+        ArrayList<String> theRichest = new ArrayList<String>();
+        for (Map.Entry<String, Double> entry : map.entrySet()){
+            if(entry.getValue() == max)
+                theRichest.add(entry.getKey());
+        }
+
+        for (String aString : theRichest)
+            System.out.print(aString+" ");
     }
 }
