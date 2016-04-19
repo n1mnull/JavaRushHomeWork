@@ -1,26 +1,24 @@
 package com.javarush.test.level26.lesson15.big01;
 
+import java.util.Collection;
 import java.util.HashMap;
 
-/**
- * Created by Alenka on 17.04.2016.
- */
+
 public final class CurrencyManipulatorFactory
 {
-
-    static HashMap<String, CurrencyManipulator> mapCurrencyManipulator = new HashMap<>();
+    static HashMap<String, CurrencyManipulator> map = new HashMap<>();
     static boolean isExist = false;
 
-
-    public static CurrencyManipulator getManipulatorByCurrencyCode(String currencyCode) {
+    public static CurrencyManipulator getManipulatorByCurrencyCode(String currencyCode)
+    {
         isExist = false;
         CurrencyManipulator current;
 
-        if (mapCurrencyManipulator.containsKey(currencyCode))
-            return mapCurrencyManipulator.get(currencyCode);
+        if (map.containsKey(currencyCode))
+            return map.get(currencyCode);
         else {
             current = new CurrencyManipulator(currencyCode);
-            mapCurrencyManipulator.put(currencyCode, current);
+            map.put(currencyCode, current);
             return current;
         }
     }
@@ -28,4 +26,12 @@ public final class CurrencyManipulatorFactory
     private CurrencyManipulatorFactory()
     {
     }
+
+    public static Collection<CurrencyManipulator> getAllCurrencyManipulators()
+    {
+        return map.values();
+    }
+
+
+
 }

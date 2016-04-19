@@ -1,16 +1,16 @@
 package com.javarush.test.level26.lesson15.big01;
 
-/**
- * Created by Alenka on 15.04.2016.
- */
+
 public enum Operation
 {
+    LOGIN,
     INFO,
     DEPOSIT,
     WITHDRAW,
     EXIT;
 
-    public static Operation getAllowableOperationByOrdinal(Integer i) {
+    public static Operation getAllowableOperationByOrdinal(Integer i)
+    {
         switch(i)
         {
             case 0: throw new IllegalArgumentException();
