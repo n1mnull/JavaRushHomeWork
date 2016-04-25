@@ -8,39 +8,45 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Alenka on 22.04.2016.
- */
 public class ConsoleHelper
 {
-    static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
-    public static void writeMessage(String message) {
+    public static void writeMessage(String message)
+    {
         System.out.println(message);
     }
 
-    public static String readString() throws IOException {
-        String string = bufferedReader.readLine();
-
-        return string;
+    public static String readString() throws IOException
+    {
+        return br.readLine();
     }
 
     public static List<Dish> getAllDishesForOrder() throws IOException
     {
-        writeMessage("Выберите доступное блюдо или exit для выхода");
-        writeMessage(Dish.allDishesToString());
-        String input;
-        List<Dish> dishOrder = new ArrayList<>();
-        while (!(input = readString()).equalsIgnoreCase("exit")) {
-            String temp = null;
-            try {
-                temp = input.toLowerCase();
-                dishOrder.add(Dish.valueOf(input));
-            } catch (IllegalArgumentException e) {
-                writeMessage(temp +" is not detected");
+        List<Dish> dishList = new ArrayList<>();
+        writeMessage("Please, choose a dish: " + Dish.allDishesToString());
+
+        do
+        {
+            String dish = readString();
+            if ("exit".equalsIgnoreCase(dish))
+            {
+                break;
+            }
+            try
+            {
+                dishList.add(Dish.valueOf(dish));
+            }
+            catch (IllegalArgumentException e) {
+                ConsoleHelper.writeMessage(String.format("%s is not detected", dish));
             }
         }
-        return dishOrder;
+        while (true);
+
+        return dishList;
+
     }
+
+
 }
