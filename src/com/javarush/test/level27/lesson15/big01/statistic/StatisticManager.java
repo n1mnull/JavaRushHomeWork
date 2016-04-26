@@ -14,7 +14,7 @@ import java.util.Map;
 public class StatisticManager
 {
     private static StatisticManager ourInstance = new StatisticManager();
-    private static StatisticStorage storage = StatisticManager.getInstance().new StatisticStorage();
+    private static StatisticStorage statisticStorage = StatisticManager.getInstance().new StatisticStorage();
 
     public static StatisticManager getInstance() {
         return ourInstance;
@@ -24,7 +24,7 @@ public class StatisticManager
     }
 
     public void register(EventDataRow data) {
-        storage.put(data);
+        statisticStorage.put(data);
     }
 
     private class StatisticStorage {
