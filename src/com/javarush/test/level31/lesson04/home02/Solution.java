@@ -20,7 +20,7 @@ public class Solution extends SimpleFileVisitor<Path> {
     public static void main(String[] args) throws IOException {
         EnumSet<FileVisitOption> options = EnumSet.of(FileVisitOption.FOLLOW_LINKS);
         final Solution solution = new Solution();
-        Files.walkFileTree(Paths.get("D:/"), options, 20, solution);
+        Files.walkFileTree(Paths.get("F:/"), options, 20, solution);
 
         List<String> result = solution.getArchived();
         System.out.println("All archived files:");
