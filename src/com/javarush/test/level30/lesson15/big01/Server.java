@@ -106,6 +106,7 @@ public class Server
             }
 
             connectionMap.remove(userName);
+
             sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
             ConsoleHelper.writeMessage("connection was completed");
         }
