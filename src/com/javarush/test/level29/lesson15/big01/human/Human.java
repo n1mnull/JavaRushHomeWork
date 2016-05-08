@@ -1,5 +1,9 @@
 package com.javarush.test.level29.lesson15.big01.human;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Human {
     public static int nextId = 0;
     private int id;
@@ -8,7 +12,7 @@ public class Human {
     protected int course;
 
     protected int[] size;
-
+    private List<Human> children = new ArrayList<>();
     protected boolean isSoldier;
 
     public static final int FIRST = 1;
@@ -70,4 +74,18 @@ public class Human {
     public void printSize() {
         System.out.println("Рост: " + size[0] + " Вес: " + size[1]);
     }
+
+    public List<Human> getChildren()
+    {
+        return Collections.unmodifiableList(children);
+    }
+    public void addChild (Human child)
+    {
+        children.add(child);
+    }
+    public void removeChild (Human child)
+    {
+        children.remove(child);
+    }
+
 }
