@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Human {
-    public static int nextId = 0;
+public class Human implements Alive{
+    private  static int nextId = 0;
     private int id;
     protected int age;
     protected String name;
-    protected int course;
 
     protected int[] size;
     private List<Human> children = new ArrayList<>();
-    protected boolean isSoldier;
 
     public static final int FIRST = 1;
     public static final int SECOND = 2;
@@ -28,9 +26,9 @@ public class Human {
         return bloodGroup;
     }
 
-    public Human(boolean isSoldier)
-    {
-        this.isSoldier = isSoldier;
+    public Human(String name, int age) {
+        this.name = name;
+        this.age = age;
         this.id = nextId;
         nextId++;
     }
@@ -51,16 +49,7 @@ public class Human {
         this.name = name;
     }
 
-    public int getCourse() {
-        return course;
-    }
-
     public void live() {
-        if (isSoldier)
-            fight();
-    }
-
-    public void fight() {
     }
 
     public int getId() {
@@ -86,6 +75,14 @@ public class Human {
     public void removeChild (Human child)
     {
         children.remove(child);
+    }
+
+    public String getPosition() {
+        return "Человек";
+    }
+
+    public void printData() {
+        System.out.println(getPosition() + ": " + name);
     }
 
 }
