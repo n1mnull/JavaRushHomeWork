@@ -2,8 +2,10 @@ package com.javarush.test.level32.lesson15.big01.listeners;
 
 import com.javarush.test.level32.lesson15.big01.View;
 
+import javax.swing.*;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
+import java.awt.*;
 
 /**
  * Created by Alenka on 17.05.2016.
@@ -17,8 +19,12 @@ public class TextEditMenuListener implements MenuListener {
     }
 
     @Override
-    public void menuSelected(MenuEvent e) {
-
+    public void menuSelected(MenuEvent menuEvent) {
+        JMenu jMenu = (JMenu) menuEvent.getSource();
+        Component[] components = jMenu.getMenuComponents();
+        for (Component component : components) {
+            component.setEnabled(view.isHtmlTabSelected());
+        }
     }
 
     @Override
