@@ -59,7 +59,29 @@ public class View extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
+        String command = e.getActionCommand();
+        switch (command) {
+            case "Новый":
+                controller.createNewDocument();
+                break;
+            case "Открыть":
+                controller.openDocument();
+                break;
+            case "Сохранить":
+                controller.saveDocument();
+                break;
+            case "Сохранить как...":
+                controller.saveDocumentAs();
+                break;
+            case "Выход":
+                controller.exit();
+                break;
+            case "О программе":
+                this.showAbout();
+                break;
+        }
     }
 
     public void initMenuBar() {
@@ -91,7 +113,17 @@ public class View extends JFrame implements ActionListener {
         pack();
     }
 
-    public void selectedTabChanged() {}
+    public void selectedTabChanged() {
+        switch (tabbedPane.getSelectedIndex()) {
+            case 0:
+                controller.setPlainText(plainTextPane.getText());
+                break;
+            case 1:
+                plainTextPane.setText(controller.getPlainText());
+                break;
+        }
+        resetUndo();
+    }
 
     public boolean canUndo() {
         return undoManager.canUndo();
