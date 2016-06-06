@@ -11,12 +11,12 @@ public class Solution<T extends ClassForGenerics & InterfaceForGenerics> {
         Solution<TestClassGood> testClassSolution = new Solution<>();
         testClassSolution.check();
 
-//        !!! Следующие оба варианта не должны работать:
-        Solution<TestClassWrong1> wrong1Solution = new Solution<>();
-        wrong1Solution.check();
-
-        Solution<TestClassWrong2> wrong2Solution = new Solution<>();
-        wrong2Solution.check();
+////        !!! Следующие оба варианта не должны работать:
+//        Solution<TestClassWrong1> wrong1Solution = new Solution<>();
+//        wrong1Solution.check();
+//
+//        Solution<TestClassWrong2> wrong2Solution = new Solution<>();
+//        wrong2Solution.check();
     }
 
     public void check() {
